@@ -19,10 +19,11 @@
             <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Menu" HorizontalAlignment="Center"  VerticalAlignment="Center" Background="LightGray" Width="294" HorizontalContentAlignment="Center" FontSize="30" Height="50"/>
-        <Button Content="Lista książek" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="294" FontSize="30" Height="44"/>
-        <Button Content="Lista filmów" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="294" FontSize="30" Height="44"/>
-        <Button Content="Wyjdź" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="294" FontSize="30" Height="44"/>
+        <Button Content="Lista książek" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="294" FontSize="30" Height="44" Click="Button_Ksiazki"/>
+        <Button Content="Lista filmów" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="294" FontSize="30" Height="44" Click="Button_Filmy"/>
+        <Button Content="Wyjdź" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="294" FontSize="30" Height="44" Click="Button_Wyjdz"/>
         <GridSplitter  Width="10" Background="DimGray" Grid.RowSpan="4"/>
+        <local:Panel_filmy x:Name="panel_filmy" Grid.Column="1" HorizontalAlignment="Left" Margin="280,174,0,0" VerticalAlignment="Top" Height="155" Grid.RowSpan="2" Width="165"/>
 
     </Grid>
 </Window>

@@ -23,6 +23,27 @@ namespace Cyfrowa_Biblioteka
         public MainWindow()
         {
             InitializeComponent();
+            panel_filmy.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Wyjdz(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Ksiazki(object sender, RoutedEventArgs e)
+        {
+            panel_filmy.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Filmy(object sender, RoutedEventArgs e)
+        {
+            panel_filmy.Visibility = Visibility.Visible;
+        }
+
+        private void Panel_filmy_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

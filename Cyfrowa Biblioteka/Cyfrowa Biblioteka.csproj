@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dodaj.xaml.cs">
+      <DependentUpon>Dodaj.xaml</DependentUpon>
+    </Compile>
     <Compile Include="klasy\Book.cs" />
     <Compile Include="klasy\Film.cs" />
     <Compile Include="klasy\Item.cs" />
@@ -65,6 +68,10 @@
       <DependentUpon>Panel_ksiazki.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test.cs" />
+    <Page Include="Dodaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

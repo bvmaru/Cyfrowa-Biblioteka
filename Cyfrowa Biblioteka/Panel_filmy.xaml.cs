@@ -38,7 +38,10 @@ namespace Cyfrowa_Biblioteka
         private void Szczegoly_Click(object sender, RoutedEventArgs e)
         {
             //szczegoly.Text = film.Text;
-            szczegoly.Text = YourListBox.SelectedItem.ToString();
+            if (YourListBox.SelectedItem != null)
+            {
+                szczegoly.Text = YourListBox.SelectedItem.ToString();
+            }
         }
     }
 }

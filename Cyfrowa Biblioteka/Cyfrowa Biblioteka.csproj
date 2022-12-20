@@ -58,6 +58,9 @@
     <Compile Include="Panel_filmy.xaml.cs">
       <DependentUpon>Panel_filmy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Panel_ksiazki.xaml.cs">
+      <DependentUpon>Panel_ksiazki.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +75,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Panel_filmy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panel_ksiazki.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

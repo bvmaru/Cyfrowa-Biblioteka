@@ -35,6 +35,10 @@ namespace Cyfrowa_Biblioteka
             YourListBox.ItemsSource = namelist;
         }
 
-
+        private void Szczegoly_Click(object sender, RoutedEventArgs e)
+        {
+            //szczegoly.Text = film.Text;
+            szczegoly.Text = YourListBox.SelectedItem.ToString();
+        }
     }
 }

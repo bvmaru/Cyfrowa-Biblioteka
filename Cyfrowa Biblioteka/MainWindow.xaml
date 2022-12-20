@@ -23,7 +23,8 @@
         <Button Content="Lista filmów" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="294" FontSize="30" Height="44" Click="Button_Filmy"/>
         <Button Content="Wyjdź" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="294" FontSize="30" Height="44" Click="Button_Wyjdz"/>
         <GridSplitter  Width="10" Background="DimGray" Grid.RowSpan="4"/>
-        <local:Panel_filmy x:Name="panel_filmy" Grid.Column="1" HorizontalAlignment="Left" Margin="280,174,0,0" VerticalAlignment="Top" Height="155" Grid.RowSpan="2" Width="165"/>
+        <local:Panel_filmy x:Name="panel_filmy" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="699" Grid.RowSpan="4" Width="730"/>
+        <local:Panel_ksiazki x:Name="panel_ksiazki" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="714" Grid.RowSpan="4" Width="730"/>
 
     </Grid>
 </Window>

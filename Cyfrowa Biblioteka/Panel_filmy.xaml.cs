@@ -24,9 +24,9 @@ namespace Cyfrowa_Biblioteka
         {
             InitializeComponent();
             List<Test> testlist = new List<Test>();
-            testlist.Add(new Test("test"));
-            testlist.Add(new Test("test1"));
-            testlist.Add(new Test("test2"));
+            testlist.Add(new Test("test", 3));
+            testlist.Add(new Test("test1", 2));
+            testlist.Add(new Test("test2", 6));
             List<string> namelist = new List<string>();
             foreach (Test test in testlist)
             {

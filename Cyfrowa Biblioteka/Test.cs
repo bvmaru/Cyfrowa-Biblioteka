@@ -10,10 +10,12 @@ namespace Cyfrowa_Biblioteka
     internal class Test
     {
         public string name;
+        public int ocena;
 
-        public Test(string name)
+        public Test(string name, int ocena)
         {
             this.name = name;
+            this.ocena = ocena;
         }
     }
 }

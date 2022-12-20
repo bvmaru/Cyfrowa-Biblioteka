@@ -8,5 +8,26 @@ namespace Cyfrowa_Biblioteka.klasy
 {
     internal class Item
     {
+        private string Title { get; set; }
+        private int rate;
+        private int Rate
+        {
+            get
+            {
+                return rate;
+            }
+            set
+            {
+                if (value < 0 || value > 10) this.rate = 0; else this.rate = value;
+            }
+        }
+        private int Year_of_production { get; set; }
+
+        public Item(string title = " ", int rate = 0, int year_of_production = 0)
+        {
+            this.Title = title;
+            this.Rate = rate;
+            this.Year_of_production = year_of_production;
+        }
     }
 }

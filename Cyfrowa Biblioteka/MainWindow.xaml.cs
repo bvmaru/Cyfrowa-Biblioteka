@@ -1,4 +1,5 @@
 ﻿using Cyfrowa_Biblioteka.klasy;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace Cyfrowa_Biblioteka
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    private List<Film> filmsObjectFromFile { get; set; }
     public partial class MainWindow : Window
     {
         public MainWindow()

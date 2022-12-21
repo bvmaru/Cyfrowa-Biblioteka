@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Cyfrowa_Biblioteka.klasy;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +23,20 @@ namespace Cyfrowa_Biblioteka
     /// </summary>
     public partial class Panel_filmy : UserControl
     {
+        private List<Film> filmsObjectFromFile { get; set; }
         public Panel_filmy()
         {
             InitializeComponent();
-            List<Test> testlist = new List<Test>();
-            testlist.Add(new Test("test", 3));
-            testlist.Add(new Test("test1", 2));
-            testlist.Add(new Test("test2", 6));
-            List<string> namelist = new List<string>();
-            foreach (Test test in testlist)
+            var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+            filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
+
+            var namelist = new List<string>();
+
+            foreach (Film film in filmsObjectFromFile)
             {
-                namelist.Add(test.name);
+                namelist.Add(film.Title);
             }
-            YourListBox.ItemsSource = namelist;
+            YourListBox.ItemsSource = filmsObjectFromFile;
         }
 
         private void Szczegoly_Click(object sender, RoutedEventArgs e)
@@ -40,7 +44,7 @@ namespace Cyfrowa_Biblioteka
             //szczegoly.Text = film.Text;
             if (YourListBox.SelectedItem != null)
             {
-                szczegoly.Text = YourListBox.SelectedItem.ToString();
+                szczegoly.Text = ((Film)YourListBox.SelectedItem).Rate.ToString();
             }
         }
     }

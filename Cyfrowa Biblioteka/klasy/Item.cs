@@ -8,9 +8,9 @@ namespace Cyfrowa_Biblioteka.klasy
 {
     internal class Item
     {
-        private string Title { get; set; }
-        private int rate;
-        private int Rate
+        public string Title { get; set; }
+        public int rate;
+        public int Rate
         {
             get
             {
@@ -21,7 +21,7 @@ namespace Cyfrowa_Biblioteka.klasy
                 if (value < 0 || value > 10) this.rate = 0; else this.rate = value;
             }
         }
-        private int Year_of_production { get; set; }
+        public int Year_of_production { get; set; }
 
         public Item(string title = " ", int rate = 0, int year_of_production = 0)
         {

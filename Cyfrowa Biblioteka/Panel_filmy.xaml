@@ -16,7 +16,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Title}" FontSize="18" />
+                        <TextBlock Text="{Binding Path=Title}" FontSize="18" TextWrapping="Wrap" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -26,6 +26,7 @@
         <TextBox
             x:Name="szczegoly" IsReadOnly="True"
             Grid.Column="1" Margin="10,60,10,190"
-            FontSize="25" FontStyle="Italic" FontFamily="Times New Roman"/>
+            FontSize="25" FontStyle="Italic" FontFamily="Times New Roman"
+            TextWrapping="Wrap"/>
     </Grid>
 </UserControl>

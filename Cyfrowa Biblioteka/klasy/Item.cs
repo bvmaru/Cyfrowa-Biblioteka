@@ -9,7 +9,7 @@ namespace Cyfrowa_Biblioteka.klasy
     internal class Item
     {
         public string Title { get; set; }
-        public int rate;
+        private int rate;
         public int Rate
         {
             get
@@ -23,11 +23,14 @@ namespace Cyfrowa_Biblioteka.klasy
         }
         public int Year_of_production { get; set; }
 
-        public Item(string title = " ", int rate = 0, int year_of_production = 0)
+        public string Komentarz { get; set; }
+
+        public Item(string title = " ", int rate = 0, int year_of_production = 0, string komentarz = " ")
         {
             this.Title = title;
             this.Rate = rate;
             this.Year_of_production = year_of_production;
+            this.Komentarz = komentarz;
         }
     }
 }

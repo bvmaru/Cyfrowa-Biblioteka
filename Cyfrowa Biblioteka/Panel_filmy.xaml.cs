@@ -45,7 +45,9 @@ namespace Cyfrowa_Biblioteka
                     $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
                     $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
                     $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
-                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min";
+                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min\n\n\n" +
+                    $"------------------------------------\n" +
+                    $"Komentarz:\n{((Film)YourListBox.SelectedItem).Komentarz}";
                 szczegoly.Text = info;
             }
         }
@@ -53,7 +55,15 @@ namespace Cyfrowa_Biblioteka
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             AddFilm newFilm = new AddFilm();
-            newFilm.Show();
+            newFilm.ShowDialog();
+            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            {
+                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
+                YourListBox.ItemsSource = filmsObjectFromFile;
+            }
+
+
         }
     }
 }

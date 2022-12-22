@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cyfrowa_Biblioteka"
         mc:Ignorable="d"
-        Title="AddFilm" Height="385" Width="400">
+        Title="Dodaj Film" Height="425" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -25,7 +25,7 @@
 
         <StackPanel Grid.Row="1" Margin="0,20,0,0">
             <Label Content="Rok produkcji" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="userYear" TextWrapping="Wrap"  Width="120"/>
+            <TextBox x:Name="userYear" TextWrapping="Wrap" PreviewTextInput="userYear_PreviewTextInput" Width="120"/>
 
         </StackPanel>
 
@@ -37,16 +37,22 @@
 
         <StackPanel Grid.Column="1" Margin="0,37,0,0">
             <Label Content="Ocena" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="userRate" TextWrapping="Wrap"  Width="120"/>
+            <TextBox x:Name="userRate" TextWrapping="Wrap"  Width="120" PreviewTextInput="userRate_PreviewTextInput"/>
 
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,20,0,0">
             <Label Content="Czas trwania (min)" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-            <TextBox x:Name="userDuration" TextWrapping="Wrap"  Width="120"/>
+            <TextBox x:Name="userDuration" TextWrapping="Wrap"  Width="120" PreviewTextInput="userDuration_PreviewTextInput"/>
 
         </StackPanel>
-        <Button Grid.Column="1" Content="Dodaj Film" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="18"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,0,0">
+            <Label Content="Komentarz" Margin="0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userComment" Grid.Column="1" HorizontalAlignment="Center" Margin="0,5,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="60"/>
+            <Button Grid.Column="1" Content="Dodaj Film" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Bottom" Margin="10,5" FontSize="18" Click="Dodaj_Click"/>
+        </StackPanel>
+
 
     </Grid>
 </Window>

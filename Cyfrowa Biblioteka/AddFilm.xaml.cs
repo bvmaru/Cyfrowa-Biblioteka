@@ -1,6 +1,8 @@
 ﻿using Cyfrowa_Biblioteka.klasy;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,52 @@ namespace Cyfrowa_Biblioteka
     /// </summary>
     public partial class AddFilm : Window
     {
+        private List<Film> filmsObjectFromFile { get; set; }
         public AddFilm()
         {
             InitializeComponent();
+
+            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            {
+                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
+            }
+        }
+
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(userTitle.Text) && !string.IsNullOrEmpty(userRate.Text) && !string.IsNullOrEmpty(userYear.Text) && !string.IsNullOrEmpty(userDirector.Text))
+            {
+                Film newFilm = new Film(
+                    userTitle.Text,
+                    int.Parse(userRate.Text),
+                    int.Parse(userYear.Text),
+                    userDirector.Text,
+                    int.Parse(userDuration.Text),
+                    userComment.Text
+                    );
+                filmsObjectFromFile.Add(newFilm);
+
+                string output = JsonConvert.SerializeObject(filmsObjectFromFile);
+                File.WriteAllText(@"E:\c# nauka\filmsfile.txt", output);
+                this.Close();
+            }
+        }
+
+
+        private void userYear_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out int result);
+        }
+
+        private void userDuration_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out int result);
+        }
+
+        private void userRate_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out int result);
         }
     }
 }

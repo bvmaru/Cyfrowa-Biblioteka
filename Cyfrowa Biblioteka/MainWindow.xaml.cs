@@ -20,8 +20,6 @@ namespace Cyfrowa_Biblioteka
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-
-    private List<Film> filmsObjectFromFile { get; set; }
     public partial class MainWindow : Window
     {
         public MainWindow()

@@ -27,16 +27,13 @@ namespace Cyfrowa_Biblioteka
         public Panel_filmy()
         {
             InitializeComponent();
-            var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
-            filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
-
-            var namelist = new List<string>();
-
-            foreach (Film film in filmsObjectFromFile)
-            {
-                namelist.Add(film.Title);
+            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            { 
+                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
             }
-            YourListBox.ItemsSource = filmsObjectFromFile;
+
+                YourListBox.ItemsSource = filmsObjectFromFile; 
         }
 
         private void Szczegoly_Click(object sender, RoutedEventArgs e)
@@ -44,8 +41,19 @@ namespace Cyfrowa_Biblioteka
             //szczegoly.Text = film.Text;
             if (YourListBox.SelectedItem != null)
             {
-                szczegoly.Text = ((Film)YourListBox.SelectedItem).Rate.ToString();
+                string info = $"Tytuł:   '{((Film)YourListBox.SelectedItem).Title}'\n" +
+                    $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
+                    $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
+                    $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
+                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min";
+                szczegoly.Text = info;
             }
+        }
+
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            AddFilm newFilm = new AddFilm();
+            newFilm.Show();
         }
     }
 }

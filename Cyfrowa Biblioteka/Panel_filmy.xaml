@@ -21,11 +21,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Dodaj Film" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20"/>
+        <Button Content="Dodaj Film" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20" Click="Dodaj_Click"/>
         <Button Grid.Column="1" Content="Szczegóły" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20" Click="Szczegoly_Click"/>
         <TextBox
             x:Name="szczegoly" IsReadOnly="True"
-            Grid.Column="1" Margin="10,60,10,190"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="0" Margin="60,205,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="0" FontSize="18" TextAlignment="Justify"/>
+            Grid.Column="1" Margin="10,60,10,190"
+            FontSize="25" FontStyle="Italic" FontFamily="Times New Roman"/>
     </Grid>
 </UserControl>

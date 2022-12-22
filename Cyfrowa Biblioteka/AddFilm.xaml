@@ -1,0 +1,52 @@
+﻿<Window x:Class="Cyfrowa_Biblioteka.AddFilm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cyfrowa_Biblioteka"
+        mc:Ignorable="d"
+        Title="AddFilm" Height="385" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Podaj informacje dotyczące filmu" HorizontalAlignment="center"  VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="20"/>
+        <StackPanel Margin="0,37,0,0">
+            <Label Content="Tyuł" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userTitle" TextWrapping="Wrap"  Width="120"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,20,0,0">
+            <Label Content="Rok produkcji" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userYear" TextWrapping="Wrap"  Width="120"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,10,0,0">
+            <Label Content="Reżyser" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userDirector" TextWrapping="Wrap"  Width="120"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="0,37,0,0">
+            <Label Content="Ocena" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userRate" TextWrapping="Wrap"  Width="120"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,20,0,0">
+            <Label Content="Czas trwania (min)" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="userDuration" TextWrapping="Wrap"  Width="120"/>
+
+        </StackPanel>
+        <Button Grid.Column="1" Content="Dodaj Film" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="18"/>
+
+    </Grid>
+</Window>

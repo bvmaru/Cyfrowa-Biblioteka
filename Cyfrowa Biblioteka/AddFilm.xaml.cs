@@ -27,11 +27,16 @@ namespace Cyfrowa_Biblioteka
         {
             InitializeComponent();
 
-            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            if (File.Exists(SavePath.PathFilmy))
             {
-                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                var inputFilmsString = File.ReadAllText(SavePath.PathFilmy);
                 filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
             }
+            else
+            {
+                filmsObjectFromFile= new List<Film>();
+            }
+
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
@@ -49,7 +54,7 @@ namespace Cyfrowa_Biblioteka
                 filmsObjectFromFile.Add(newFilm);
 
                 string output = JsonConvert.SerializeObject(filmsObjectFromFile);
-                File.WriteAllText(@"E:\c# nauka\filmsfile.txt", output);
+                File.WriteAllText(SavePath.PathFilmy, output);
                 this.Close();
             }
         }

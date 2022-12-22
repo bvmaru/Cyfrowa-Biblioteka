@@ -67,6 +67,7 @@
     <Compile Include="klasy\Book.cs" />
     <Compile Include="klasy\Film.cs" />
     <Compile Include="klasy\Item.cs" />
+    <Compile Include="klasy\SavePath.cs" />
     <Compile Include="Panel_filmy.xaml.cs">
       <DependentUpon>Panel_filmy.xaml</DependentUpon>
     </Compile>

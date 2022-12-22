@@ -27,9 +27,9 @@ namespace Cyfrowa_Biblioteka
         public Panel_filmy()
         {
             InitializeComponent();
-            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            if (File.Exists(SavePath.PathFilmy))
             { 
-                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                var inputFilmsString = File.ReadAllText(SavePath.PathFilmy);
                 filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
             }
 
@@ -56,9 +56,9 @@ namespace Cyfrowa_Biblioteka
         {
             AddFilm newFilm = new AddFilm();
             newFilm.ShowDialog();
-            if (File.Exists(@"E:\c# nauka\filmsfile.txt"))
+            if (File.Exists(SavePath.PathFilmy))
             {
-                var inputFilmsString = File.ReadAllText(@"E:\c# nauka\filmsfile.txt");
+                var inputFilmsString = File.ReadAllText(SavePath.PathFilmy);
                 filmsObjectFromFile = JsonConvert.DeserializeObject<List<Film>>(inputFilmsString);
                 YourListBox.ItemsSource = filmsObjectFromFile;
             }

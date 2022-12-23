@@ -27,6 +27,7 @@ namespace Cyfrowa_Biblioteka
         public Panel_filmy()
         {
             InitializeComponent();
+            usun.Visibility = Visibility.Hidden;
             if (File.Exists(SavePath.PathFilmy))
             { 
                 var inputFilmsString = File.ReadAllText(SavePath.PathFilmy);
@@ -36,21 +37,21 @@ namespace Cyfrowa_Biblioteka
                 YourListBox.ItemsSource = filmsObjectFromFile; 
         }
 
-        private void Szczegoly_Click(object sender, RoutedEventArgs e)
-        {
-            //szczegoly.Text = film.Text;
-            if (YourListBox.SelectedItem != null)
-            {
-                string info = $"Tytuł:   '{((Film)YourListBox.SelectedItem).Title}'\n" +
-                    $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
-                    $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
-                    $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
-                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min\n\n\n" +
-                    $"------------------------------------\n" +
-                    $"Komentarz:\n{((Film)YourListBox.SelectedItem).Komentarz}";
-                szczegoly.Text = info;
-            }
-        }
+        //private void Szczegoly_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //szczegoly.Text = film.Text;
+        //    if (YourListBox.SelectedItem != null)
+        //    {
+        //        string info = $"Tytuł:   '{((Film)YourListBox.SelectedItem).Title}'\n" +
+        //            $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
+        //            $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
+        //            $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
+        //            $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min\n\n\n" +
+        //            $"------------------------------------\n" +
+        //            $"Komentarz:\n{((Film)YourListBox.SelectedItem).Komentarz}";
+        //        szczegoly.Text = info;
+        //    }
+        //}
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
@@ -64,6 +65,36 @@ namespace Cyfrowa_Biblioteka
             }
 
 
+        }
+
+        private void Usun_Click(object sender, RoutedEventArgs e)
+        {
+            filmsObjectFromFile.Remove((Film)YourListBox.SelectedItem);
+            YourListBox.ItemsSource = null;
+
+            string output = JsonConvert.SerializeObject(filmsObjectFromFile);
+            File.WriteAllText(SavePath.PathFilmy, output);
+
+            YourListBox.ItemsSource = filmsObjectFromFile;
+            usun.Visibility = Visibility.Hidden;
+        }
+
+        private void YourListBox_Selected(object sender, RoutedEventArgs e)
+        {
+            usun.Visibility = Visibility.Visible;
+
+            if (YourListBox.SelectedItem != null)
+            {
+                string info = $"Tytuł:   '{((Film)YourListBox.SelectedItem).Title}'\n" +
+                    $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
+                    $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
+                    $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
+                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min\n\n\n" +
+                    $"---------------------------------------\n" +
+                    $"Komentarz:\n{((Film)YourListBox.SelectedItem).Komentarz}";
+                szczegoly.Text = info;
+            }
+            else { szczegoly.Text = null; }
         }
     }
 }

@@ -10,5 +10,7 @@ namespace Cyfrowa_Biblioteka.klasy
     public static class SavePath
     {
         public static string PathFilmy = Directory.GetCurrentDirectory() + "\\filmsfile.txt";
+
+        public static string PathKsiazki = Directory.GetCurrentDirectory() + "\\booksfile.txt";
     }
 }

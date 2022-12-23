@@ -8,10 +8,10 @@ namespace Cyfrowa_Biblioteka.klasy
 {
     internal class Book : Item
     {
-        private string Author { get; set; }
-        private int Pages { get; set; }
+        public string Author { get; set; }
+        public int Pages { get; set; }
 
-        public Book(string title = " ", int rate = 0, int year_of_production = 0, string author = " ", int pages = 0) : base(title, rate, year_of_production)
+        public Book(string title = " ", int rate = 0, int year_of_production = 0, string author = " ", int pages = 0, string komentarz = " ") : base(title, rate, year_of_production, komentarz)
         {
             this.Author = author;
             this.Pages = pages;

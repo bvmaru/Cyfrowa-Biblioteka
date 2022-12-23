@@ -12,16 +12,23 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Margin="20,70,20,55" Name="YourListBox" Grid.ColumnSpan="2" Background="LightGray">
+        <ListBox Margin="40,60,40,60" Name="YourListBox" Background="LightGray" SelectionChanged="YourListBox_Selected">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}" FontSize="18"/>
+                        <TextBlock Text="{Binding Path=Title}" FontSize="18" TextWrapping="Wrap" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Dodaj Książkę" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20"/>
-        <Button Grid.Column="1" Content="Szczegóły" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20"/>
+        <Button Content="Dodaj Książkę" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="20" Click="Dodaj_Click"/>
+        <Label Grid.Column="1" Content="Szczegóły" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="22"/>
+
+        <TextBox
+            x:Name="szczegoly" IsReadOnly="True"
+            Grid.Column="1" Margin="10,80,10,170"
+            FontSize="25" FontStyle="Italic" FontFamily="Times New Roman"
+            TextWrapping="Wrap"/>
+        <Button x:Name="usun" Grid.Column="1" Content="Usuń z listy" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom"  FontSize="20" Click="Usun_Click"/>
     </Grid>
 </UserControl>

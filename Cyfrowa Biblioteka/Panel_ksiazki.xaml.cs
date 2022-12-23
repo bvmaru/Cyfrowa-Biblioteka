@@ -39,8 +39,8 @@ namespace Cyfrowa_Biblioteka
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            AddFilm newFilm = new AddFilm();
-            newFilm.ShowDialog();
+            AddBook newBook = new AddBook();
+            newBook.ShowDialog();
             if (File.Exists(SavePath.PathKsiazki))
             {
                 var inputBooksString = File.ReadAllText(SavePath.PathKsiazki);
@@ -71,7 +71,7 @@ namespace Cyfrowa_Biblioteka
                     $"Ocena:   {((Book)YourListBox.SelectedItem).Rate.ToString()}\n" +
                     $"Rok Wydania:    {((Book)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
                     $"Autor:   {((Book)YourListBox.SelectedItem).Author}\n" +
-                    $"Liczba stron:   {((Book)YourListBox.SelectedItem).Pages.ToString()} min\n\n\n" +
+                    $"Liczba stron:   {((Book)YourListBox.SelectedItem).Pages.ToString()}\n\n\n" +
                     $"---------------------------------------\n" +
                     $"Komentarz:\n{((Book)YourListBox.SelectedItem).Komentarz}";
                 szczegoly.Text = info;

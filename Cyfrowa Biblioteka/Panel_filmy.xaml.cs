@@ -85,14 +85,7 @@ namespace Cyfrowa_Biblioteka
 
             if (YourListBox.SelectedItem != null)
             {
-                string info = $"Tytuł:   '{((Film)YourListBox.SelectedItem).Title}'\n" +
-                    $"Ocena:   {((Film)YourListBox.SelectedItem).Rate.ToString()}\n" +
-                    $"Rok produkcji:    {((Film)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
-                    $"Reżyser:   {((Film)YourListBox.SelectedItem).Director}\n" +
-                    $"Czas trwania:   {((Film)YourListBox.SelectedItem).Duration.ToString()} min\n\n\n" +
-                    $"---------------------------------------\n" +
-                    $"Komentarz:\n{((Film)YourListBox.SelectedItem).Komentarz}";
-                szczegoly.Text = info;
+                szczegoly.Text = ((Film)YourListBox.SelectedItem).Wypisz();
             }
             else { szczegoly.Text = null; }
         }

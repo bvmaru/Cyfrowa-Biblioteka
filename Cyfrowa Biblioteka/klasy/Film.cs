@@ -16,5 +16,18 @@ namespace Cyfrowa_Biblioteka.klasy
             this.Director = director;
             this.Duration = duration;
         }
+
+        public override string Wypisz()
+        {
+            string info = $"Tytuł:   '{this.Title}'\n" +
+                $"Ocena:   {this.Rate.ToString()}\n" +
+                $"Rok produkcji:    {this.Year_of_production.ToString()} \n" +
+                $"Reżyser:   {this.Director}\n" +
+                $"Czas trwania:   {this.Duration.ToString()} min\n\n\n" +
+                $"---------------------------------------\n" +
+                $"Komentarz:\n{this.Komentarz}";
+
+            return info;
+        }
     }
 }

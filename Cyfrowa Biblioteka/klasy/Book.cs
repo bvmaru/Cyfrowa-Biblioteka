@@ -16,5 +16,18 @@ namespace Cyfrowa_Biblioteka.klasy
             this.Author = author;
             this.Pages = pages;
         }
+
+        public override string Wypisz()
+        {
+            string info = $"Tytuł:   '{this.Title}'\n" +
+                $"Ocena:   {this.Rate.ToString()}\n" +
+                $"Rok wydania:    {this.Year_of_production.ToString()} \n" +
+                $"Reżyser:   {this.Author}\n" +
+                $"Strony:   {this.Pages.ToString()}\n\n\n" +
+                $"---------------------------------------\n" +
+                $"Komentarz:\n{this.Komentarz}";
+
+            return info;
+        }
     }
 }

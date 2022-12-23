@@ -67,14 +67,7 @@ namespace Cyfrowa_Biblioteka
 
             if (YourListBox.SelectedItem != null)
             {
-                string info = $"Tytuł:   '{((Book)YourListBox.SelectedItem).Title}'\n" +
-                    $"Ocena:   {((Book)YourListBox.SelectedItem).Rate.ToString()}\n" +
-                    $"Rok Wydania:    {((Book)YourListBox.SelectedItem).Year_of_production.ToString()} \n" +
-                    $"Autor:   {((Book)YourListBox.SelectedItem).Author}\n" +
-                    $"Liczba stron:   {((Book)YourListBox.SelectedItem).Pages.ToString()}\n\n\n" +
-                    $"---------------------------------------\n" +
-                    $"Komentarz:\n{((Book)YourListBox.SelectedItem).Komentarz}";
-                szczegoly.Text = info;
+                szczegoly.Text = ((Book)YourListBox.SelectedItem).Wypisz();
             }
             else { szczegoly.Text = null; }
         }

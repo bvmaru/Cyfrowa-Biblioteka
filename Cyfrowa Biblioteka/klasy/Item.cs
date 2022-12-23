@@ -32,5 +32,15 @@ namespace Cyfrowa_Biblioteka.klasy
             this.Year_of_production = year_of_production;
             this.Komentarz = komentarz;
         }
+
+        public virtual string Wypisz()
+        {
+            string info = $"Tytuł:   '{this.Title}'\n" +
+                $"Ocena:   {this.Rate.ToString()}\n" +
+                $"Rok:    {this.Year_of_production.ToString()} \n" +
+                $"---------------------------------------\n" +
+                $"Komentarz:\n{this.Komentarz}";
+            return info;
+        }
     }
 }
